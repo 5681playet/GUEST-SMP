@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GuestSMP Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3eefc;--surface:#fff;--text:#1b1030;--muted:#5b4d78;--red:#e0262f;--blue:#2b6bff;--purple:#8a3ffc;--line:#1b1030;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0a1d;--surface:#1a1230;--text:#f4efff;--muted:#b7a8d8;--line:#000}}
+:root[data-theme="dark"]{--bg:#0f0a1d;--surface:#1a1230;--text:#f4efff;--muted:#b7a8d8;--line:#000}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Cairo,system-ui,sans-serif;line-height:1.6}
+.px{font-family:'Press Start 2P',Cairo,monospace;line-height:1.5}
+[dir=rtl] .px{font-family:Cairo,'Press Start 2P',sans-serif;font-weight:900}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px;background:var(--surface);border-bottom:4px solid var(--line);flex-wrap:wrap}
+.logo{font-size:14px;color:var(--purple)}
+.logo b{color:var(--red)}
+nav a{color:var(--text);text-decoration:none;margin:0 8px;font-weight:700;font-size:14px}
+nav a:hover{color:var(--blue)}
+.btn{display:inline-block;cursor:pointer;border:4px solid var(--line);background:var(--purple);color:#fff;padding:10px 18px;font:700 14px Cairo,sans-serif;box-shadow:4px 4px 0 var(--line);text-decoration:none}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--line)}
+.btn.red{background:var(--red)}.btn.blue{background:var(--blue)}
+.hero{text-align:center;padding:70px 20px 80px;color:#fff;background:linear-gradient(135deg,var(--red),var(--purple) 50%,var(--blue));border-bottom:4px solid var(--line)}
+.hero h1{font-size:clamp(26px,7vw,60px);margin:0 0 16px;text-shadow:4px 4px 0 rgba(0,0,0,.45)}
+.hero p{max-width:620px;margin:0 auto 26px;font-size:18px;text-shadow:2px 2px 0 rgba(0,0,0,.4)}
+.ip{display:inline-flex;gap:8px;align-items:center;background:rgba(0,0,0,.45);border:4px solid var(--line);padding:8px 12px;margin-bottom:22px;flex-wrap:wrap;justify-content:center}
+.ip code{font-size:13px;font-family:'Press Start 2P',monospace}
+section{max-width:1000px;margin:0 auto;padding:54px 20px}
+h2{font-size:clamp(16px,3.4vw,24px);margin:0 0 28px;color:var(--purple)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--surface);border:4px solid var(--line);box-shadow:6px 6px 0 var(--line);padding:20px}
+.card h3{margin:10px 0 8px;font-size:12px}
+.card p{margin:0 0 14px;color:var(--muted);font-size:15px}
+.icon{width:48px;height:48px;display:grid;place-items:center;font-size:26px;border:4px solid var(--line);color:#fff}
+.c1 .icon{background:var(--red)}.c2 .icon{background:var(--purple)}.c3 .icon{background:var(--blue)}
+.c1{border-top-color:var(--red)}.c2{border-top-color:var(--purple)}.c3{border-top-color:var(--blue)}
+.pack{background:var(--surface);border:4px solid var(--line);padding:22px;box-shadow:6px 6px 0 var(--purple)}
+.tag{display:inline-block;font-size:12px;font-weight:900;padding:2px 10px;border:3px solid var(--line);color:#fff;margin-bottom:8px}
+footer{text-align:center;padding:28px 20px;background:var(--surface);border-top:4px solid var(--line);color:var(--muted);font-size:14px}
+.lang{background:var(--red)}
+footer a{color:var(--purple);font-weight:900;text-decoration:none}
+.ver{display:inline-block;background:var(--surface);color:var(--purple);border:4px solid var(--line);padding:8px 14px;font-size:14px;margin-bottom:18px;box-shadow:4px 4px 0 var(--line)}
+.ok{display:inline-block;font-weight:900;color:#fff;background:var(--blue);border:3px solid var(--line);padding:4px 12px;font-size:14px}
+.price{font:900 26px Cairo,sans-serif;margin:8px 0}
+.card ul{margin:0 0 14px;padding-inline-start:20px;color:var(--muted);font-size:15px}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo px" href="guestsmp.html" style="text-decoration:none">Guest<b>SMP</b></a>
+  <div>
+    <a href="guestsmp.html" data-i="n_home">Home</a>
+    <a href="guestsmp.html#pack" data-i="n_pack">Resource Pack</a>
+    <a href="guestsmp.html#join" data-i="n_join">Join</a>
+    <button class="btn lang" id="lang" aria-label="Language">العربية</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1 class="px" data-i="h_shop">Shop</h1>
+  <p data-i="shop_intro">Support GuestSMP and get cool perks:</p>
+</header>
+
+<section id="shop">
+    <div class="grid">
+    <div class="card c1"><div class="icon">★</div><h3 class="px">VIP</h3><div class="price">$3</div><ul><li data-i="s1a">Red name tag in chat</li><li data-i="s1b">VIP kit</li></ul><a class="btn red" href="#" data-i="buy">Buy</a></div>
+    <div class="card c2"><div class="icon">♦</div><h3 class="px">MVP</h3><div class="price">$7</div><ul><li data-i="s2a">Purple name tag in chat</li><li data-i="s2b">MVP kit and 2 homes</li></ul><a class="btn" href="#" data-i="buy">Buy</a></div>
+    <div class="card c3"><div class="icon">♛</div><h3 class="px">Legend</h3><div class="price">$12</div><ul><li data-i="s3a">Blue name tag in chat</li><li data-i="s3b">Legend kit and 5 homes</li></ul><a class="btn blue" href="#" data-i="buy">Buy</a></div>
+  </div>
+</section>
+
+
+
+<footer>© GuestSMP · <span data-i="foot">Minecraft and EaglerCraft server. Not affiliated with Mojang or Microsoft.</span><br><span data-i="by">By</span> <a href="https://www.youtube.com/@ItsRichGuest" target="_blank" rel="noopener">@ItsRichGuest</a></footer>
+
+<script>
+const T={
+en:{n_home:"Home",by:"By",n_shop:"Shop",h_shop:"Shop",shop_intro:"Support GuestSMP and get cool perks:",s1a:"Red name tag in chat",s1b:"VIP kit",s2a:"Purple name tag in chat",s2b:"MVP kit and 2 homes",s3a:"Blue name tag in chat",s3b:"Legend kit and 5 homes",buy:"Buy",inc:"✔ Already included",n_about:"About",n_pack:"Resource Pack",n_join:"Join",tag:"A friendly EaglerCraft survival server you can play right in your browser, with great visuals and PvP fun.",ip:"EaglerCraft Server:",copy:"Copy",cta:"See the Packs",h_about:"About the Server",a1t:"PvP Ready",a1:"Fight with a clean crosshair and smooth animations.",a2t:"Survival SMP",a2:"Build, explore and survive with friends.",a3t:"Beautiful Look",a3:"Shaders and animations make every block shine. No download needed to play.",h_pack:"Resource Pack",pack_intro:"These packs are already built into the server, so there is nothing to download or install:",p1:"Smooth, lively mob animations for a fresh feel.",p2:"Beautiful lighting, shadows and skies. Ready to go as soon as you join.",p3:"A clear custom crosshair for better aim in fights.",dl:"Download",h_join:"How to Join",join:"Open EaglerCraft 26.3 in your browser → Multiplayer → Add Server → paste the address above → play!",foot:"Minecraft and EaglerCraft server. Not affiliated with Mojang or Microsoft.",btn:"العربية",done:"Copied!"},
+ar:{n_home:"الرئيسية",by:"من",n_shop:"المتجر",h_shop:"المتجر",shop_intro:"ادعم GuestSMP واحصل على مميزات رائعة:",s1a:"اسم أحمر في الشات",s1b:"كيت VIP",s2a:"اسم بنفسجي في الشات",s2b:"كيت MVP ومنزلان",s3a:"اسم أزرق في الشات",s3b:"كيت Legend وخمسة منازل",buy:"شراء",inc:"✔ موجودة مسبقاً",n_about:"عن السيرفر",n_pack:"حزمة الموارد",n_join:"انضم",tag:"سيرفر إيجلر كرافت ودّي تلعب فيه مباشرة من المتصفح، بمرئيات رائعة وقتال ممتع.",ip:"عنوان سيرفر إيجلر:",copy:"نسخ",cta:"شاهد الحزم",h_about:"عن السيرفر",a1t:"جاهز للقتال",a1:"قاتل بمؤشر واضح وحركات سلسة.",a2t:"سيرفر بقاء",a2:"ابنِ واستكشف وانجُ مع أصدقائك.",a3t:"مظهر جميل",a3:"الشيدرز والحركات تجعل كل مكعب يلمع. لا تحتاج تحميل للعب.",h_pack:"حزمة الموارد",pack_intro:"هذه الحزم موجودة مسبقاً في السيرفر، لا تحتاج تحميل أو تثبيت أي شيء:",p1:"حركات سلسة وحيّة للمخلوقات لإحساس جديد.",p2:"إضاءة وظلال وسماء رائعة. جاهزة بمجرد دخولك.",p3:"مؤشر تصويب واضح لدقة أفضل في القتال.",dl:"تحميل",h_join:"كيف تنضم",join:"افتح إيجلر كرافت 26.3 في المتصفح ← لعب جماعي ← إضافة سيرفر ← الصق العنوان أعلاه ← العب!",foot:"سيرفر ماين كرافت وإيجلر كرافت. غير تابع لموجانغ أو مايكروسوفت.",btn:"English",done:"تم النسخ!"}
+};
+let L="en";
+function setLang(l){L=l;try{localStorage.setItem("gl",l)}catch(e){}document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";
+document.querySelectorAll("[data-i]").forEach(e=>{e.textContent=T[l][e.dataset.i]});
+document.getElementById("lang").textContent=T[l].btn}
+document.getElementById("lang").onclick=()=>setLang(L==="en"?"ar":"en");
+try{if(localStorage.getItem("gl")==="ar")setLang("ar")}catch(e){}
+</script>
+</body>
+</html>
